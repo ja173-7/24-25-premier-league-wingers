@@ -1,2 +1,2 @@
 # 24-25-premier-league-wingers
-Best Premier League Winners of 24/25
+Best Premier League WinGers of 24/25
