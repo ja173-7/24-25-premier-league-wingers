@@ -33,3 +33,19 @@ cols = ["Player Name", "Club", "GA_p90", "Shots_p90", "ProgCarries_p90",
 
 ranked = w.sort_values("GA_p90", ascending=False)
 print(ranked[cols].round(2).to_string(index=False))
+
+weights = {"GA_p90": 3, "ShotsOnTarget_p90": 1, "ProgCarries_p90": 2,
+           "ChanceCarries_p90": 2, "ShotCarries_p90": 1, "Crosses_p90": 1,
+           "FinalThird_p90": 1, "PossWon_p90": 1, "Dispossessed_p90": -1}
+
+score = 0
+for stat, weight in weights.items():
+ score = score + (w[stat] - w[stat].mean()) / w[stat].std() * weight
+
+w["Score"] = ((score - score.min()) / (score.max() - score.min()) * 100).round(1)
+
+final = w.sort_values("Score", ascending=False)
+print(final[["Player Name", "Club", "Score"]].to_string(index=False))
+
+check = ["Mohamed Salah", "Bukayo Saka", "Cody Gakpo", "Marcus Rashford"]
+print(w[w["Player Name"].isin(check)].set_index("Player Name")[list(weights)].round(2).T)

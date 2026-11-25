@@ -1,37 +1,49 @@
-       Player Name                   Club  GA_p90  Shots_p90  ProgCarries_p90  ChanceCarries_p90  Crosses_p90  Dispossessed_p90
-     Mohamed Salah              Liverpool    1.25       3.46             6.16               0.37         0.56              1.79
-       Bukayo Saka                Arsenal    0.83       3.48             3.58               0.00         0.00              2.07
-      Jacob Murphy       Newcastle United    0.76       1.63             5.07               0.19         0.08              1.40
-      Bryan Mbeumo              Brentford    0.71       2.24             5.06               0.32         0.34              1.24
-     Son Heung-Min      Tottenham Hotspur    0.68       2.42             7.53               0.47         0.43              1.36
-     Harvey Barnes       Newcastle United    0.67       3.23             4.67               0.31         0.41              1.18
-       Amad Diallo      Manchester United    0.66       2.23             4.12               0.19         0.09              1.66
-        Cody Gakpo              Liverpool    0.65       2.65            12.72               1.25         0.93              1.11
-    Anthony Elanga      Nottingham Forest    0.61       1.58             7.50               0.54         0.75              1.54
-   Marcus Rashford            Aston Villa    0.57       2.21            11.17               0.82         1.01              0.44
-       Jérémy Doku        Manchester City    0.54       1.73            13.38               0.06         0.18              3.51
-  Leandro Trossard                Arsenal    0.53       2.54             4.76               0.39         0.49              1.84
-      Kaoru Mitoma Brighton & Hove Albion    0.48       1.97             7.90               0.38         0.86              0.79
-Gabriel Martinelli                Arsenal    0.47       2.15             4.30               0.23         0.04              1.49
-      Harry Wilson                 Fulham    0.47       3.34             7.39               0.08         0.47              0.47
-      Ismaïla Sarr         Crystal Palace    0.46       1.96             2.59               0.00         0.00              1.43
-      Adama Traoré                 Fulham    0.46       1.98             9.51               1.17         1.53              1.27
-           Savinho        Manchester City    0.46       2.80             6.46               0.05         0.15              1.93
-      Noni Madueke                Chelsea    0.44       3.52             8.62               0.31         0.70              1.10
-  Dejan Kulusevski      Tottenham Hotspur    0.41       1.77             6.10               0.19         0.15              2.79
-    Anthony Gordon       Newcastle United    0.41       2.17            11.23               0.96         0.29              1.40
-     Iliman Ndiaye                Everton    0.33       1.36             7.16               0.37         0.07              1.62
-Alejandro Garnacho      Manchester United    0.33       3.44             9.88               0.78         0.33              1.97
-    Dango Ouattara            Bournemouth    0.31       2.78             5.83               0.54         0.85              1.44
-Callum Hudson-Odoi      Nottingham Forest    0.29       1.51            13.58               0.08         0.04              0.94
-    Mohammed Kudus        West Ham United    0.28       2.60             7.40               0.28         0.14              3.22
-      Jarrod Bowen        West Ham United    0.24       2.63             3.38               0.03         0.00              2.33
-       Leon Bailey            Aston Villa    0.24       2.20             7.09               0.47         0.08              1.97
-         Luis Díaz              Liverpool    0.19       2.65             1.61               0.04         0.11              1.83
-        Pedro Neto                Chelsea    0.16       2.34             7.98               0.32         1.35              1.19
-      Jadon Sancho                Chelsea    0.15       1.22             3.21               0.15         0.31              1.07
-   Antoine Semenyo            Bournemouth    0.14       3.51             8.25               0.48         1.18              2.16
-   Brennan Johnson      Tottenham Hotspur    0.12       2.23            10.12               0.66         0.45              0.70
-     Tyler Dibling            Southampton    0.10       1.34             7.59               0.38         0.91              2.64
-      Kevin Schade              Brentford    0.08       2.15             3.05               0.04         0.12              1.41
-   Justin Kluivert            Bournemouth    0.00       2.41             2.75               0.23         0.08              1.03
+Not found: []
+Under 900 minutes: []
+36 wingers
+
+Gls and Ast = season totals. Everything after Ast is PER 90:
+GA90 = goals + assists, xG = expected goals, xA = expected assists, OnTgt = shots on target,
+BoxT = touches in box, SCA = chance creation, KP = key passes, BoxP = passes into box,
+Cross = crosses into box, Drib = successful dribbles, Carry = progressive carries,
+Recv = progressive passes received, Loss = ball losses (fewer is better)
+
+ Rank             Player            Club  Min  Gls  Ast  GA90   xG   xA  OnTgt  BoxT  SCA   KP  BoxP  Cross  Drib  Carry  Recv  Loss  Score
+    1      Mohamed Salah       Liverpool 3371   29   18  1.25 0.67 0.38   1.33  9.50 4.51 2.35  2.48   0.40  1.55   4.11 13.03  4.89  100.0
+    2        Bukayo Saka         Arsenal 1729    6   10  0.83 0.35 0.40   1.15  8.43 6.09 3.02  1.98   0.62  2.13   5.00 13.27  3.85   64.5
+    3      Son Heung-min       Tottenham 2110    7    9  0.68 0.31 0.35   1.02  5.20 4.99 2.13  2.18   0.26  1.24   4.09 11.30  2.43   51.5
+    4       Bryan Mbeumo       Brentford 3414   20    7  0.71 0.32 0.22   0.90  4.43 3.80 1.85  1.56   0.50  1.37   3.43  9.25  4.03   51.2
+    5          Luis Díaz       Liverpool 2399   13    5  0.68 0.45 0.19   1.13  6.27 4.39 2.10  1.73   0.23  1.99   4.05 10.99  3.90   50.9
+    6        Jeremy Doku        Man City 1516    3    6  0.53 0.08 0.28   0.53  9.56 4.69 1.90  2.85   0.36  6.35  12.65 16.98  7.01   47.0
+    7       Jacob Murphy       Newcastle 2360    8   12  0.76 0.22 0.34   0.57  3.51 3.13 1.60  1.56   0.57  1.33   3.01  8.81  2.63   46.8
+    8              Sávio        Man City 1766    1    8  0.46 0.25 0.35   1.07  7.85 5.66 2.34  2.40   0.41  2.65   6.98 12.54  4.08   45.8
+    9      Harvey Barnes       Newcastle 1755    9    4  0.67 0.37 0.21   1.03  6.56 3.28 1.33  2.10   0.46  1.23   4.77  9.85  2.87   44.5
+   10    Justin Kluivert     Bournemouth 2340   12    6  0.69 0.40 0.18   0.88  5.15 3.88 1.73  1.35   0.23  1.38   3.12  6.65  3.15   44.1
+   11        Amad Diallo         Man Utd 1901    8    6  0.66 0.22 0.23   0.80  6.20 4.59 2.32  1.66   0.33  1.94   5.16  9.47  3.65   42.9
+   12         Cody Gakpo       Liverpool 1935   10    4  0.65 0.33 0.20   1.02  5.12 3.72 1.77  1.26   0.37  1.44   2.74 12.93  3.21   42.6
+   13       Noni Madueke         Chelsea 2033    7    3  0.44 0.42 0.19   1.33  8.15 3.50 1.42  1.55   0.35  1.99   6.82 10.00  3.41   40.6
+   14       Jarrod Bowen        West Ham 2973   13    8  0.64 0.26 0.21   1.09  5.18 3.42 1.54  1.39   0.24  1.33   3.30  6.42  4.45   40.3
+   15    Marcus Rashford Man Utd / Villa 1422    6    3  0.57 0.30 0.28   0.89  4.05 3.54 1.77  1.58   0.63  1.14   2.66  7.66  1.84   37.2
+   16 Gabriel Martinelli         Arsenal 2290    8    4  0.47 0.29 0.20   0.94  7.15 2.91 1.57  1.45   0.59  1.30   4.87 11.36  3.46   36.5
+   17     Dango Ouattara     Bournemouth 2005    7    4  0.49 0.38 0.25   0.90  5.75 3.23 1.57  1.17   0.49  1.75   3.55  8.57  4.26   36.4
+   18       Kaoru Mitoma        Brighton 2603   10    4  0.48 0.32 0.16   0.93  5.67 3.01 1.28  1.24   0.28  1.80   5.05 10.06  2.63   36.2
+   19       Adama Traoré          Fulham 1772    2    7  0.46 0.20 0.25   0.61  4.62 4.16 2.13  1.93   1.12  2.44   5.08  8.18  3.15   35.9
+   20    Brennan Johnson       Tottenham 2177   11    3  0.58 0.43 0.10   0.83  5.17 1.90 0.79  1.45   0.25  0.79   2.48  8.14  1.78   34.6
+   21       Ismaila Sarr          Palace 2711    8    6  0.46 0.36 0.28   0.96  4.48 3.65 1.46  1.39   0.30  0.56   2.49  6.08  3.75   34.5
+   22   Leandro Trossard         Arsenal 2546    8    7  0.53 0.25 0.22   0.74  5.59 3.29 1.45  1.70   0.35  1.34   2.83  7.99  4.17   34.2
+   23     Anthony Elanga          Forest 2501    6   11  0.61 0.16 0.21   0.86  3.96 3.67 1.80  0.94   0.29  0.90   3.67  8.24  4.39   33.8
+   24    Antoine Semenyo     Bournemouth 3203   11    5  0.45 0.28 0.16   1.12  5.37 3.71 1.29  1.26   0.22  1.94   3.93  7.92  4.52   33.3
+   25     Anthony Gordon       Newcastle 2434    6    5  0.41 0.30 0.18   0.59  4.73 3.73 1.89  2.03   0.63  1.41   4.47  7.91  2.74   32.9
+   26         Pedro Neto         Chelsea 2269    4    6  0.40 0.14 0.27   0.67  4.60 3.57 1.82  1.47   0.91  1.35   5.00 10.04  2.97   31.1
+   27   Dejan Kulusevski       Tottenham 2389    7    4  0.41 0.16 0.23   0.64  5.95 4.82 2.45  1.96   0.23  1.43   4.52  7.91  5.69   29.1
+   28 Alejandro Garnacho         Man Utd 2199    6    2  0.33 0.30 0.18   1.19  7.20 3.40 1.51  1.02   0.20  1.06   5.77 11.87  4.58   28.7
+   29       Kevin Schade       Brentford 2293   11    2  0.51 0.32 0.15   1.06  5.73 2.24 0.90  0.43   0.12  1.18   2.39  6.48  3.77   27.8
+   30       Harry Wilson          Fulham 1162    6    1  0.54 0.33 0.09   1.32  4.88 3.41 1.55  1.16   0.08  0.70   1.70  7.44  1.94   27.8
+   31       Jadon Sancho         Chelsea 1764    3    4  0.36 0.11 0.19   0.41  6.17 3.57 1.94  2.45   0.00  2.30   5.20 11.48  2.60   26.1
+   32     Mohammed Kudus        West Ham 2590    5    3  0.28 0.24 0.11   0.73  4.41 3.72 1.08  1.01   0.52  3.20   3.41  7.51  5.91   19.5
+   33 Callum Hudson-Odoi          Forest 2194    5    2  0.29 0.10 0.11   0.70  3.04 3.86 1.80  1.35   0.45  1.52   5.33  7.75  2.79   18.4
+   34      Iliman Ndiaye         Everton 2430    9    0  0.33 0.23 0.07   0.56  3.07 2.41 0.67  0.52   0.19  2.52   3.19  4.52  3.67   14.9
+   35        Leon Bailey           Villa 1139    1    2  0.24 0.13 0.12   0.47  5.53 3.00 1.26  1.58   0.16  1.74   4.58  9.56  4.74   12.5
+   36      Tyler Dibling     Southampton 1874    2    0  0.10 0.12 0.07   0.43  1.97 2.69 0.96  0.96   0.05  2.16   3.31  4.61  4.75    0.0
+
+Saved docs/data.json
