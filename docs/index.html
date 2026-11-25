@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>24/25 Wingers Stats</title>
+<meta name="description" content="2024/25 Premier League wingers compared on 15 stats, with an overall ranking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: dark;
+    --night: #1E0028;
+    --purple: #37003C;
+    --deep: #2A0030;
+    --raised: #4A0A55;
+    --line: rgba(255, 255, 255, 0.14);
+    --muted: #D9C8E0;
+    --green: #00FF85;
+    --cyan: #04F5FF;
+    --pink: #FF2882;
+    --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+    --body: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--night); color: #fff; font-family: var(--body); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 1.02; margin: 0; }
+  p { margin: 0; }
+  a { color: var(--cyan); }
+  :focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+  /* Top bar */
+  .topbar { background: var(--purple); border-bottom: 1px solid var(--line); }
+  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-top: 12px; padding-bottom: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 800; font-size: 1.35rem; color: #fff; text-decoration: none; }
+  .brand-mark { width: 26px; height: 26px; border-radius: 7px; background: conic-gradient(from 210deg, var(--green), var(--cyan), var(--pink), var(--green)); }
+  .nav { display: flex; gap: 18px; }
+  .nav a { color: var(--muted); font-weight: 600; font-size: 15px; text-decoration: none; }
+  .nav a:hover { color: #fff; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; background: radial-gradient(120% 140% at 0% 0%, #5B0F66 0%, var(--purple) 45%, var(--night) 100%); border-bottom: 1px solid var(--line); }
+  .hero::after { content: ""; position: absolute; top: -20%; right: -8%; width: 46%; height: 140%; background: repeating-linear-gradient(115deg, rgba(255,255,255,0.07) 0 14px, transparent 14px 36px); transform: skewX(-14deg); pointer-events: none; }
+  .hero::before { content: ""; position: absolute; right: 9%; top: 0; bottom: 0; width: 10px; background: linear-gradient(180deg, var(--green), var(--cyan), var(--pink)); transform: skewX(-14deg); opacity: 0.85; pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 1; padding-top: 64px; padding-bottom: 66px; }
+  .season-tag { display: inline-block; font-weight: 700; color: var(--night); background: var(--green); border-radius: 6px; padding: 3px 10px; font-size: 14px; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); max-width: 13ch; }
+  .hero-sub { margin-top: 16px; color: var(--muted); font-size: 1.1rem; }
+
+  section.block { padding: 64px 0 8px; }
+  .block h2 { font-size: clamp(2.1rem, 4.6vw, 3.2rem); margin-bottom: 18px; }
+
+  /* Avatars */
+  .av { border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 800; flex: 0 0 auto; user-select: none; }
+
+  /* Stat chart */
+  .cat-tabs { display: flex; gap: 6px; overflow-x: auto; padding: 4px; background: rgba(255,255,255,0.06); border-radius: 14px; width: fit-content; max-width: 100%; margin-bottom: 12px; }
+  .cat-tab { flex: 0 0 auto; font-family: var(--display); font-weight: 800; font-size: 1.2rem; color: var(--muted); background: transparent; border: 0; border-radius: 10px; padding: 9px 18px; cursor: pointer; white-space: nowrap; }
+  .cat-tab:hover { color: #fff; }
+  .cat-tab[aria-pressed="true"] { background: var(--green); color: var(--night); }
+  .stat-tabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px; margin: 0 -2px; }
+  .stat-tabs:empty { display: none; }
+  .stat-tab { flex: 0 0 auto; font: inherit; font-size: 15px; font-weight: 600; color: var(--muted); background: rgba(255,255,255,0.07); border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; white-space: nowrap; }
+  .stat-tab:hover { color: #fff; background: rgba(255,255,255,0.12); }
+  .stat-tab[aria-pressed="true"] { background: #fff; color: var(--night); }
+  .chart-card { position: relative; margin-top: 12px; background: linear-gradient(180deg, var(--purple), var(--deep)); border: 1px solid var(--line); border-radius: 20px; padding: 22px 22px 14px; }
+  .chart-title { font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+  .chart-sub { color: var(--muted); margin-top: 4px; font-size: 15.5px; }
+  .chart-scroll { overflow-x: auto; margin-top: 10px; }
+  .chart { display: block; width: 100%; min-width: 860px; height: auto; }
+  .chart .bar { cursor: pointer; outline: none; }
+  .chart .bar rect.fill { transition: fill 0.15s ease, opacity 0.15s ease; }
+  .chart .bar.dim rect.fill { opacity: 0.35; }
+  .chart .bar.on rect.fill { fill: #FFFFFF; opacity: 1; }
+  .chart .bar:focus-visible rect.fill { fill: #FFFFFF; }
+  .hint { color: var(--muted); font-size: 14px; margin-top: 6px; }
+
+  /* Hover card */
+  .tip { position: absolute; z-index: 5; pointer-events: none; min-width: 210px; background: #fff; color: var(--night); border-radius: 14px; padding: 12px 14px; box-shadow: 0 12px 30px rgba(0,0,0,0.45); opacity: 0; transform: translateY(6px); transition: opacity 0.12s ease, transform 0.12s ease; }
+  .tip.show { opacity: 1; transform: translateY(0); }
+  .tip-head { display: flex; align-items: center; gap: 10px; }
+  .tip-head .av { width: 40px; height: 40px; font-size: 16px; }
+  .tip-name { font-family: var(--display); font-weight: 800; font-size: 1.3rem; line-height: 1.05; }
+  .tip-club { font-size: 13px; color: #5a4462; }
+  .tip-value { font-family: var(--display); font-weight: 800; font-size: 1.9rem; margin-top: 8px; line-height: 1; }
+  .tip-value small { font-family: var(--body); font-size: 13px; font-weight: 600; color: #5a4462; }
+  .tip-total { margin-top: 4px; font-size: 14px; color: #5a4462; }
+  .tip-pct { margin-top: 6px; font-size: 14px; font-weight: 600; }
+  .tip-pct b { color: #00A85A; }
+
+  /* Ranking */
+  .podium { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: end; margin-bottom: 26px; }
+  .place { display: flex; flex-direction: column; }
+  .place.p2 { order: 1; } .place.p1 { order: 2; } .place.p3 { order: 3; }
+  .card { background: linear-gradient(180deg, var(--raised), var(--purple)); border: 2px solid var(--line); border-bottom: 0; border-radius: 18px 18px 0 0; padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+  .p1 .card { border-color: var(--green); box-shadow: 0 0 40px rgba(0,255,133,0.22); }
+  .p2 .card { border-color: #C9D1DE; }
+  .p3 .card { border-color: #D08A4A; }
+  .card .av { width: 74px; height: 74px; font-size: 28px; margin-bottom: 4px; }
+  .card h3 { font-size: 1.8rem; }
+  .card .club { color: var(--muted); font-size: 14.5px; }
+  .card .best { color: var(--muted); font-size: 14.5px; }
+  .card .best b { color: #fff; }
+  .card-score { font-family: var(--display); font-weight: 800; font-size: 2.8rem; line-height: 1; margin-top: 4px; }
+  .card-score small { font-size: 1.05rem; color: var(--muted); }
+  .p1 .card-score { color: var(--green); }
+  .crown { width: 30px; height: 30px; color: var(--green); }
+  .step { display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 3rem; color: var(--night); border-radius: 0 0 12px 12px; }
+  .p1 .step { height: 120px; background: linear-gradient(180deg, #00D46E, #00703E); }
+  .p2 .step { height: 88px; background: linear-gradient(180deg, #C9D1DE, #7D879A); }
+  .p3 .step { height: 64px; background: linear-gradient(180deg, #CB8C50, #7A4C22); }
+
+  .ranklist { list-style: none; margin: 0; padding: 0; background: var(--deep); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .ranklist li { display: grid; grid-template-columns: 40px 42px minmax(0, 1fr) minmax(90px, 260px) 84px; align-items: center; gap: 12px; padding: 11px 18px; border-top: 1px solid var(--line); }
+  .ranklist li:first-child { border-top: 0; }
+  .ranklist li:nth-child(even) { background: #2F0036; }
+  .rk { font-family: var(--display); font-weight: 800; font-size: 1.35rem; color: var(--muted); text-align: right; }
+  .ranklist .av { width: 38px; height: 38px; font-size: 15px; }
+  .who strong { display: block; font-weight: 700; }
+  .who small { display: block; color: var(--muted); font-size: 13px; }
+  .scorebar { height: 9px; border-radius: 6px; background: rgba(255,255,255,0.1); overflow: hidden; }
+  .scorebar i { display: block; height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--pink), var(--cyan), var(--green)); }
+  .score { font-family: var(--display); font-weight: 800; font-size: 1.35rem; text-align: right; white-space: nowrap; }
+  .score small { font-family: var(--body); font-size: 12px; font-weight: 600; color: var(--muted); margin-left: 2px; }
+  .list-title { font-size: 1.8rem; margin: 6px 0 12px; }
+  .ranklist li.medal { box-shadow: inset 4px 0 0 var(--medal); }
+  .ranklist li.medal .rk { color: var(--medal); }
+  .ranklist li.m1 { --medal: #00FF85; } .ranklist li.m2 { --medal: #C9D1DE; } .ranklist li.m3 { --medal: #D08A4A; }
+
+  footer { margin-top: 72px; border-top: 1px solid var(--line); background: var(--purple); }
+  footer .wrap { padding-top: 24px; padding-bottom: 30px; display: grid; gap: 6px; font-size: 14.5px; color: var(--muted); }
+
+  .error { margin: 40px auto; max-width: 70ch; background: var(--purple); border: 1px solid var(--pink); border-radius: 14px; padding: 20px; display: none; }
+  .error h2 { font-size: 1.8rem; margin-bottom: 8px; }
+  .error code { background: var(--night); padding: 2px 6px; border-radius: 5px; color: var(--green); }
+
+  @media (max-width: 760px) {
+    .podium { grid-template-columns: 1fr; }
+    .place.p1, .place.p2, .place.p3 { order: 0; }
+    .card { border-bottom: 2px solid; }
+    .p1 .step, .p2 .step, .p3 .step { height: 44px; font-size: 1.8rem; }
+    .ranklist li { grid-template-columns: 30px 38px minmax(0, 1fr) 76px; padding: 10px 14px; }
+    .ranklist .scorebar { display: none; }
+    .hero::before { right: 4%; }
+    .hero::after { width: 60%; opacity: 0.6; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>PL Winger Index</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#stats">Stats</a>
+      <a href="#ranking">Ranking</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="season-tag">Premier League</span>
+      <h1>24/25 Wingers Stats</h1>
+      <p class="hero-sub">Per 90</p>
+    </div>
+  </div>
+
+  <div class="error" id="error" role="alert">
+    <h2>The data didn't load</h2>
+    <p>This page reads <code>data.json</code> from the same folder. Run <code>python wingers.py</code> to create <code>docs/data.json</code>, then preview the page with <code>cd docs</code> and <code>python -m http.server 8000</code>.</p>
+  </div>
+
+  <section class="block" id="stats" aria-labelledby="stats-title">
+    <div class="wrap">
+      <h2 id="stats-title">Stats</h2>
+      <div class="cat-tabs" id="cats" role="toolbar" aria-label="Choose a category"></div>
+      <div class="stat-tabs" id="tabs" role="toolbar" aria-label="Choose a stat"></div>
+      <div class="chart-card" id="chart-card">
+        <h3 class="chart-title" id="chart-title"></h3>
+        <p class="chart-sub" id="chart-sub"></p>
+        <div class="chart-scroll" id="chart-scroll"></div>
+        <p class="hint">Hover or tap a bar to see the player.</p>
+        <div class="tip" id="tip" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ranking" aria-labelledby="ranking-title">
+    <div class="wrap">
+      <h2 id="ranking-title">Ranking</h2>
+      <div class="podium" id="podium"></div>
+      <h3 class="list-title">Full leaderboard</h3>
+      <ol class="ranklist" id="ranklist"></ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Data: FBref (Opta) via the Kaggle dataset "Football Players Stats (2024-2025)". Premier League matches only.</span>
+    <span><a href="https://github.com/ja173-7/24-25-premier-league-wingers">View the code on GitHub</a></span>
+  </div>
+</footer>
+
+<script>
+const DEFS = {
+  "Score":          { label: "Overall score", short: "Overall", outOf100: true, tip: "Combines all the stats. The best winger scores 100." },
+  "End product":    { label: "End product score", short: "Overall end product", outOf100: true, tip: "Goals + assists per 90 and over the whole season. The best gets 100." },
+  "Chance quality": { label: "Chance quality score", short: "Overall chance quality", outOf100: true, tip: "How good the chances they shot from and created were (xG + xA). The best gets 100." },
+  "Creating":       { label: "Creating score", short: "Overall creating", outOf100: true, tip: "Combines the creating and box stats below. The best gets 100." },
+  "Dribbling":      { label: "Dribbling & carrying score", short: "Overall dribbling", outOf100: true, tip: "Combines the dribbling and carrying stats below. The best gets 100." },
+  "Ball security":  { label: "Ball security score", short: "Overall ball security", outOf100: true, tip: "Based on ball losses. Fewest losses gets 100." },
+  "Goals + assists p90": { label: "Goals + assists", short: "Goals + assists", tip: "Goals plus assists.", total: (d) => `${d.Gls + d.Ast} goals + assists` },
+  "Season goals + assists": { label: "Goals + assists", short: "Season total", season: true, tip: "Goals plus assists over the whole season." },
+  "Goals p90":      { label: "Goals", short: "Goals", tip: "Goals scored.", total: (d) => `${d.Gls} ${d.Gls === 1 ? "goal" : "goals"}` },
+  "Assists p90":    { label: "Assists", short: "Assists", tip: "Assists made.", total: (d) => `${d.Ast} ${d.Ast === 1 ? "assist" : "assists"}` },
+  "xG + xA p90":    { label: "xG + xA", short: "xG + xA", tip: "Expected goals plus expected assists: the quality of their chances." },
+  "xG p90":         { label: "Expected goals (xG)", short: "xG", tip: "How good the chances a player shot from were." },
+  "xA p90":         { label: "Expected assists (xA)", short: "xA", tip: "How likely a player's passes were to become assists." },
+  "Chance creation p90": { label: "Shot-creating actions", short: "Chance creation", tip: "The two actions (passes, dribbles or fouls won) before a shot." },
+  "Key passes p90": { label: "Key passes", short: "Key passes", tip: "Passes that led directly to a shot." },
+  "Passes into box p90": { label: "Passes into the box", short: "Passes into box", tip: "Completed passes into the opponent's penalty area." },
+  "Crosses into box p90": { label: "Crosses into the box", short: "Crosses", tip: "Completed crosses into the penalty area." },
+  "Shots on target p90": { label: "Shots on target", short: "Shots on target", tip: "Shots that hit the target." },
+  "Box touches p90": { label: "Touches in the box", short: "Box touches", tip: "Touches inside the opponent's penalty area." },
+  "Dribbles p90":   { label: "Dribbles completed", short: "Dribbles", tip: "Times a player beat a defender with the ball." },
+  "Progressive carries p90": { label: "Progressive carries", short: "Carries", tip: "Runs with the ball that move it well towards goal." },
+  "Passes received p90": { label: "Progressive passes received", short: "Passes received", tip: "Forward passes received in dangerous areas." },
+  "Ball losses p90": { label: "Ball losses", short: "Ball losses", invert: true, tip: "Miscontrols plus times dispossessed. Fewer is better, so the best are on the left." }
+};
+const CATS = [
+  { id: "overall", label: "Overall", charts: ["Score"] },
+  { id: "end", label: "End product", charts: ["End product", "Goals + assists p90", "Season goals + assists", "Goals p90", "Assists p90"] },
+  { id: "quality", label: "Chance quality", charts: ["Chance quality", "xG + xA p90", "xG p90", "xA p90"] },
+  { id: "creating", label: "Creating", charts: ["Creating", "Chance creation p90", "Key passes p90", "Passes into box p90", "Crosses into box p90", "Shots on target p90", "Box touches p90"] },
+  { id: "dribbling", label: "Dribbling & carrying", charts: ["Dribbling", "Dribbles p90", "Progressive carries p90", "Passes received p90"] },
+  { id: "ball", label: "Ball security", charts: ["Ball security", "Ball losses p90"] }
+];
+let STAT_KEYS = Object.keys(DEFS).filter((k) => !DEFS[k].outOf100);
+const CLUBS = {
+  "Arsenal": ["Arsenal", "#EF0107", "#FFFFFF"],
+  "Aston Villa": ["Aston Villa", "#670E36", "#95BFE5"],
+  "Bournemouth": ["Bournemouth", "#DA291C", "#000000"],
+  "Brentford": ["Brentford", "#E30613", "#FFFFFF"],
+  "Brighton": ["Brighton & Hove Albion", "#0057B8", "#FFFFFF"],
+  "Chelsea": ["Chelsea", "#034694", "#FFFFFF"],
+  "Crystal Palace": ["Crystal Palace", "#1B458F", "#FFFFFF"],
+  "Everton": ["Everton", "#003399", "#FFFFFF"],
+  "Fulham": ["Fulham", "#FFFFFF", "#000000"],
+  "Ipswich Town": ["Ipswich Town", "#3A64A3", "#FFFFFF"],
+  "Leicester City": ["Leicester City", "#003090", "#FDBE11"],
+  "Liverpool": ["Liverpool", "#C8102E", "#FFFFFF"],
+  "Manchester City": ["Manchester City", "#6CABDD", "#1C2C5B"],
+  "Manchester Utd": ["Manchester United", "#DA291C", "#FBE122"],
+  "Newcastle Utd": ["Newcastle United", "#241F20", "#FFFFFF"],
+  "Nott'ham Forest": ["Nottingham Forest", "#DD0000", "#FFFFFF"],
+  "Southampton": ["Southampton", "#D71920", "#FFFFFF"],
+  "Tottenham": ["Tottenham Hotspur", "#FFFFFF", "#132257"],
+  "West Ham": ["West Ham United", "#7A263A", "#1BB1E7"],
+  "Wolves": ["Wolverhampton Wanderers", "#FDB913", "#231F20"]
+};
+
+let DATA = [], activeCat = "overall", activeStat = "Score", onBar = null;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0; };
+const fmt2 = (v) => num(v).toFixed(2);
+function ordinal(n) { const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+function clubInfo(squad) { const last = String(squad || "").split(" / ").pop().trim(); return CLUBS[last] || [last, "#4A0A55", "#FFFFFF"]; }
+function clubLabel(squad) { return String(squad || "").split(" / ").map((s) => (CLUBS[s.trim()] || [s.trim()])[0]).join(" / "); }
+function initials(name) { const p = String(name).replace(/-/g, " ").trim().split(/\s+/); return p.length === 1 ? p[0].slice(0, 2).toUpperCase() : (p[0][0] + p[p.length - 1][0]).toUpperCase(); }
+function shortName(name) { if (/^Son Heung/i.test(name)) return "Son"; const p = String(name).trim().split(/\s+/); return p.length > 1 ? p.slice(1).join(" ") : p[0]; }
+function avatar(d) { const [, bg, fg] = clubInfo(d.Squad); return `<span class="av" aria-hidden="true" style="background:${bg};color:${fg};box-shadow:inset 0 0 0 2px ${fg}55">${esc(initials(d.Player))}</span>`; }
+const valueText = (def, v) => def.outOf100 ? num(v).toFixed(1) : def.season ? String(Math.round(num(v))) : fmt2(v);
+const unitText = (def) => def.outOf100 ? "out of 100" : def.season ? "this season" : "per 90";
+
+fetch("data.json")
+  .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(init)
+  .catch((err) => { console.error(err); $("error").style.display = "block"; });
+
+function init(rows) {
+  STAT_KEYS = STAT_KEYS.filter((k) => rows.some((r) => r[k] !== undefined && r[k] !== null));
+  CATS.forEach((c) => { c.charts = c.charts.filter((k) => rows.some((r) => r[k] !== undefined && r[k] !== null)); });
+  for (let i = CATS.length - 1; i >= 0; i--) { if (CATS[i].id !== "overall" && CATS[i].charts.length < 2) CATS.splice(i, 1); }
+  DATA = rows.map((r) => {
+    const d = { ...r, Player: String(r.Player || "Unknown"), Squad: String(r.Squad || "") };
+    d.Score = num(r.Score);
+    ["Gls", "Ast", "Min"].forEach((k) => { d[k] = num(r[k]); });
+    Object.keys(DEFS).forEach((k) => { d[k] = num(r[k]); });
+    return d;
+  }).sort((a, b) => b.Score - a.Score);
+  DATA.forEach((d, i) => { d._rank = i + 1; });
+
+  // Category scores come straight from wingers.py, so the site matches the analysis
+
+  renderTabs();
+  renderChart();
+  renderRanking();
+}
+
+/* ---------- Category + stat buttons ---------- */
+function renderTabs() {
+  $("cats").innerHTML = CATS.map((c) => `<button type="button" class="cat-tab" data-id="${c.id}" aria-pressed="${c.id === activeCat}">${esc(c.label)}</button>`).join("");
+  $("cats").querySelectorAll(".cat-tab").forEach((b) => b.addEventListener("click", () => {
+    activeCat = b.dataset.id;
+    activeStat = CATS.find((c) => c.id === activeCat).charts[0];
+    renderTabs();
+    renderChart();
+  }));
+  const cat = CATS.find((c) => c.id === activeCat);
+  $("tabs").innerHTML = cat.charts.length > 1 ? cat.charts.map((k) => `<button type="button" class="stat-tab" data-key="${esc(k)}" aria-pressed="${k === activeStat}">${esc(DEFS[k].short)}</button>`).join("") : "";
+  $("tabs").querySelectorAll(".stat-tab").forEach((b) => b.addEventListener("click", () => {
+    activeStat = b.dataset.key;
+    $("tabs").querySelectorAll(".stat-tab").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    renderChart();
+  }));
+}
+
+function sortedFor(key) {
+  const inv = DEFS[key].invert;
+  return [...DATA].sort((a, b) => (inv ? a[key] - b[key] : b[key] - a[key]) || a._rank - b._rank);
+}
+
+/* ---------- Chart ---------- */
+function renderChart() {
+  const key = activeStat, def = DEFS[key];
+  const rows = sortedFor(key);
+  const n = rows.length;
+  $("chart-title").textContent = def.label + (def.outOf100 ? " out of 100" : def.season ? " this season" : " per 90");
+  $("chart-sub").textContent = def.tip;
+
+  const bw = 30, padL = 44, padT = 18, ch = 270, padB = 100;
+  const W = padL + n * bw + 12, H = padT + ch + padB;
+  const maxV = def.outOf100 ? 100 : Math.max(...rows.map((d) => d[key])) * 1.1 || 1;
+  const y = (v) => padT + ch - (v / maxV) * ch;
+  const avg = rows.reduce((t, d) => t + d[key], 0) / (n || 1);
+
+  let grid = "";
+  for (let k = 0; k <= 4; k++) {
+    const v = (maxV / 4) * k, yy = y(v).toFixed(1);
+    grid += `<line x1="${padL}" x2="${W - 6}" y1="${yy}" y2="${yy}" stroke="rgba(255,255,255,0.08)"/>
+      <text x="${padL - 8}" y="${yy}" text-anchor="end" dominant-baseline="central" font-size="12" fill="#D9C8E0" font-family="Barlow, system-ui, sans-serif">${v.toFixed(v < 10 ? 1 : 0)}</text>`;
+  }
+  const bars = rows.map((d, i) => {
+    const v = d[key];
+    const x = padL + i * bw + 5, w = bw - 10, top = y(v), h = Math.max(2, padT + ch - top);
+    const lx = x + w / 2, ly = padT + ch + 12;
+    return `<g class="bar" tabindex="0" role="button" data-i="${DATA.indexOf(d)}" data-pos="${i + 1}" aria-label="${esc(d.Player)}, ${valueText(def, v)} ${unitText(def)}">
+      <rect x="${x - 5}" y="${padT}" width="${bw}" height="${ch + padB - 8}" fill="transparent"/>
+      <rect class="fill" x="${x}" y="${top.toFixed(1)}" width="${w}" height="${h.toFixed(1)}" rx="4" fill="#00FF85"/>
+      <text transform="translate(${lx.toFixed(1)} ${ly}) rotate(-52)" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="500" fill="#D9C8E0" font-family="Barlow, system-ui, sans-serif">${esc(shortName(d.Player))}</text>
+    </g>`;
+  }).join("");
+  const ay = y(avg).toFixed(1);
+  const avgLine = `<line x1="${padL}" x2="${W - 6}" y1="${ay}" y2="${ay}" stroke="#FF2882" stroke-width="2" stroke-dasharray="6 5" pointer-events="none"/>
+    <text x="${W - 8}" y="${(ay - 8).toFixed(1)}" text-anchor="end" font-size="13" font-weight="700" fill="#FF2882" font-family="Barlow, system-ui, sans-serif" pointer-events="none">Average ${valueText(def, avg)}</text>`;
+
+  $("chart-scroll").innerHTML = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(def.label)} for every winger">${grid}${bars}<line x1="${padL}" x2="${W - 6}" y1="${padT + ch}" y2="${padT + ch}" stroke="rgba(255,255,255,0.35)"/>${avgLine}</svg>`;
+  hideTip();
+
+  $("chart-scroll").querySelectorAll(".bar").forEach((g) => {
+    const show = () => showTip(g, key, n);
+    g.addEventListener("mouseenter", show);
+    g.addEventListener("focus", show);
+    g.addEventListener("click", (e) => { e.stopPropagation(); show(); });
+    g.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(); } });
+  });
+  $("chart-scroll").querySelector("svg").addEventListener("mouseleave", hideTip);
+}
+
+function showTip(g, key, n) {
+  const def = DEFS[key], d = DATA[+g.dataset.i], pos = +g.dataset.pos;
+  const better = n > 1 ? Math.round(((n - pos) / (n - 1)) * 100) : 100;
+  $("chart-scroll").querySelectorAll(".bar").forEach((b) => { b.classList.toggle("on", b === g); b.classList.toggle("dim", b !== g); });
+  const tip = $("tip");
+  tip.innerHTML = `<div class="tip-head">${avatar(d)}<div><div class="tip-name">${esc(d.Player)}</div><div class="tip-club">${esc(clubLabel(d.Squad))}</div></div></div>
+    <div class="tip-value">${valueText(def, d[key])} <small>${unitText(def)}</small></div>
+    ${def.total ? `<div class="tip-total">${def.total(d)} in ${d.Min.toLocaleString("en-GB")} minutes</div>` : ""}
+    <div class="tip-pct">Ranked ${ordinal(pos)}, <b>better than ${better}%</b> of these wingers</div>`;
+  const card = $("chart-card").getBoundingClientRect();
+  const r = g.querySelector("rect.fill").getBoundingClientRect();
+  tip.classList.add("show");
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  let left = r.left - card.left + r.width / 2 - tw / 2;
+  left = Math.max(10, Math.min(left, card.width - tw - 10));
+  let top = r.top - card.top - th - 12;
+  const minTop = $("chart-scroll").getBoundingClientRect().top - card.top;
+  if (top < minTop) {
+    top = Math.max(minTop, r.top - card.top);
+    left = r.right - card.left + 12;
+    if (left + tw > card.width - 10) left = r.left - card.left - tw - 12;
+    left = Math.max(10, left);
+  }
+  tip.style.left = left + "px";
+  tip.style.top = top + "px";
+  onBar = g;
+}
+function hideTip() {
+  $("tip").classList.remove("show");
+  $("chart-scroll").querySelectorAll(".bar").forEach((b) => b.classList.remove("on", "dim"));
+  onBar = null;
+}
+document.addEventListener("click", (e) => { if (onBar && !e.target.closest(".bar")) hideTip(); });
+$("chart-scroll").addEventListener("scroll", hideTip);
+window.addEventListener("resize", hideTip);
+
+/* ---------- Ranking ---------- */
+function bestStat(d) {
+  let best = null;
+  STAT_KEYS.forEach((k) => {
+    const pos = sortedFor(k).indexOf(d) + 1;
+    if (!best || pos < best.pos) best = { k, pos };
+  });
+  return best;
+}
+function renderRanking() {
+  const crown = `<svg class="crown" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7l4.5 4L12 4l4.5 7L21 7l-2 11H5L3 7zm2.3 13h13.4v2H5.3v-2z"/></svg>`;
+  $("podium").innerHTML = DATA.slice(0, 3).map((d, i) => {
+    const b = bestStat(d);
+    return `<div class="place p${i + 1}">
+      <div class="card">
+        ${i === 0 ? crown : ""}
+        ${avatar(d)}
+        <h3>${esc(d.Player)}</h3>
+        <div class="club">${esc(clubLabel(d.Squad))}</div>
+        <div class="card-score">${d.Score.toFixed(1)}<small> / 100</small></div>
+        <div class="best">Best at: <b>${esc(DEFS[b.k].label)}</b> (${ordinal(b.pos)})</div>
+      </div>
+      <div class="step" aria-hidden="true">${i + 1}</div>
+    </div>`;
+  }).join("");
+  $("ranklist").innerHTML = DATA.map((d) => `<li class="${d._rank <= 3 ? "medal m" + d._rank : ""}">
+    <span class="rk">${d._rank}</span>
+    ${avatar(d)}
+    <span class="who"><strong>${esc(d.Player)}</strong><small>${esc(clubLabel(d.Squad))}</small></span>
+    <span class="scorebar"><i style="width:${Math.max(2, d.Score)}%"></i></span>
+    <span class="score">${d.Score.toFixed(1)}<small>/100</small></span>
+  </li>`).join("");
+}
+</script>
+</body>
+</html>
